@@ -46,3 +46,6 @@ perf.data.old
 # mac
 .DS_Store
 .localized
+
+# vscode
+*.code-workspace
