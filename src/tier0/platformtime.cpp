@@ -1,5 +1,5 @@
 //========= Copyright Valve Corporation, All rights reserved. ============//
-#include "../public/tier0/platformtime.h"
+#include "tier0/platformtime.h"
 
 #ifdef WIN32
 #include "winlite.h"

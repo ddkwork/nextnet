@@ -145,7 +145,7 @@ macro(gamenetworkingsockets_common GNS_TARGET)
 
 	target_include_directories(${GNS_TARGET} PRIVATE
 		"common"
-		"public"
+		"./"
 
 		# Only necessary if we're not using protobuf::libprotobuf
 		# But that's not supported until CMake 3.9
