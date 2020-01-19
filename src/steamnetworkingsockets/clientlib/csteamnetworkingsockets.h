@@ -8,15 +8,9 @@
 #include <steam/isteamnetworkingsockets.h>
 #include <steam/isteamnetworkingutils.h>
 
-#if defined( STEAMNETWORKINGSOCKETS_STEAMCLIENT ) || defined( STEAMNETWORKINGSOCKETS_STREAMINGCLIENT )
-	#include "../../common/steam/iclientnetworkingsockets.h"
-	#include "../../common/steam/iclientnetworkingutils.h"
-	#define ICLIENTNETWORKING_OVERRIDE override
-#else
-	typedef ISteamNetworkingSockets IClientNetworkingSockets;
-	typedef ISteamNetworkingUtils IClientNetworkingUtils;
-	#define ICLIENTNETWORKING_OVERRIDE
-#endif
+typedef ISteamNetworkingSockets IClientNetworkingSockets;
+typedef ISteamNetworkingUtils IClientNetworkingUtils;
+#define ICLIENTNETWORKING_OVERRIDE
 
 #include "steamnetworkingsockets_connections.h"
 

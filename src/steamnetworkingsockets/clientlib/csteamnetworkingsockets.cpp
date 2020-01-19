@@ -817,17 +817,6 @@ int CSteamNetworkingSockets::ReceiveMessagesOnPollGroup( HSteamNetPollGroup hPol
 	return pPollGroup->m_queueRecvMessages.RemoveMessages( ppOutMessages, nMaxMessages );
 }
 
-#ifdef STEAMNETWORKINGSOCKETS_STEAMCLIENT
-int CSteamNetworkingSockets::ReceiveMessagesOnListenSocketLegacyPollGroup( HSteamListenSocket hSocket, SteamNetworkingMessage_t **ppOutMessages, int nMaxMessages )
-{
-	SteamDatagramTransportLock scopeLock( "ReceiveMessagesOnListenSocket" );
-	CSteamNetworkListenSocketBase *pSock = GetListenSocketByHandle( hSocket );
-	if ( !pSock )
-		return -1;
-	return pSock->m_legacyPollGroup.m_queueRecvMessages.RemoveMessages( ppOutMessages, nMaxMessages );
-}
-#endif
-
 bool CSteamNetworkingSockets::GetConnectionInfo( HSteamNetConnection hConn, SteamNetConnectionInfo_t *pInfo )
 {
 	SteamDatagramTransportLock scopeLock( "GetConnectionInfo" );
