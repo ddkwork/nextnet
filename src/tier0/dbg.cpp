@@ -33,7 +33,6 @@
 #if defined( __s390x__ )
 #define NVALGRIND
 #endif
-#include "tier0/valgrind.h"
 #endif
 
 static SpewRetval_t  _SpewMessageType( SpewType_t spewType, char const* pMsgFormat, va_list args );
@@ -55,10 +54,6 @@ bool Plat_IsInDebugSession()
 	sysctl(mib,4,&info,&size,NULL,0);
 	return ((info.kp_proc.p_flag & P_TRACED) == P_TRACED);
 #elif defined(LINUX)
-	if ( RUNNING_ON_VALGRIND )
-	{
-		return true;
-	}
 	static FILE *fp;
 	if ( !fp )
 	{
