@@ -11,7 +11,6 @@
 
 #include "wchartypes.h"
 #include "tier0/memdbgoff.h"
-#include "tier0/valve_off.h"
 
 #include "minbase/minbase_identify.h"
 #include "minbase/minbase_securezeromemory_impl.h"
@@ -66,7 +65,6 @@
 	#if !defined( _stricmp )
 	#define _stricmp strcasecmp // validator.cpp
 	#endif
-	#define _strcmpi strcasecmp // vprof.cpp
 
 	#include <errno.h>
 	inline int GetLastError() { return errno; }

@@ -15,9 +15,6 @@
 #error ("Must include tier0 type headers before tchar.h")
 #endif
 
-// Temporarily turn off Valve defines
-#include "tier0/valve_off.h"
-
 // char8
 // char8 is equivalent to char, and should be used when you really need a char
 // (for example, when calling an external function that's declared to take
@@ -92,9 +89,6 @@ typedef unsigned int uchar32;
 typedef unsigned short uchar16;
 typedef wchar_t uchar32;
 #endif
-
-// Turn valve defines back on
-#include "tier0/valve_on.h"
 
 
 #endif // WCHARTYPES

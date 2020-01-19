@@ -17,7 +17,6 @@
 #include <fcntl.h>
 #endif
 
-#include <tier0/vprof.h>
 #include <tier1/utlmemory.h>
 #include "crypto.h"
 
@@ -356,7 +355,6 @@ bool CCrypto::SymmetricAuthDecryptWithIV(
 //-----------------------------------------------------------------------------
 void CCrypto::GenerateSHA256Digest( const void *pInput, size_t cbInput, SHA256Digest_t *pOutDigest )
 {
-	VPROF_BUDGET( "CCrypto::GenerateSHA256Digest", VPROF_BUDGETGROUP_ENCRYPTION );
 	//Assert( pubInput );
 	Assert( pOutDigest );
 
@@ -375,7 +373,6 @@ void CCrypto::GenerateSHA256Digest( const void *pInput, size_t cbInput, SHA256Di
 //-----------------------------------------------------------------------------
 void CCrypto::GenerateRandomBlock( void *pvDest, int cubDest )
 {
-	VPROF_BUDGET( "CCrypto::GenerateRandomBlock", VPROF_BUDGETGROUP_ENCRYPTION );
 	AssertFatal( cubDest >= 0 );
 	uint8 *pubDest = (uint8 *)pvDest;
 
@@ -431,7 +428,6 @@ void CCrypto::GenerateRandomBlock( void *pvDest, int cubDest )
 //-----------------------------------------------------------------------------
 void CCrypto::GenerateHMAC256( const uint8 *pubData, uint32 cubData, const uint8 *pubKey, uint32 cubKey, SHA256Digest_t *pOutputDigest )
 {
-	VPROF_BUDGET( "CCrypto::GenerateHMAC256", VPROF_BUDGETGROUP_ENCRYPTION );
 	Assert( pubData );
 	Assert( cubData > 0 );
 	Assert( pubKey );

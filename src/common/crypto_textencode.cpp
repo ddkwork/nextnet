@@ -4,7 +4,6 @@
 // several different projects and may include Crypto++ headers depending
 // on compile-time defines, which in turn pulls in other odd dependencies
 #include "crypto.h"
-#include <tier0/vprof.h>
 #include <tier1/utlbuffer.h>
 
 //-----------------------------------------------------------------------------
@@ -17,7 +16,6 @@
 //-----------------------------------------------------------------------------
 bool CCrypto::HexEncode( const void *pData, const uint32 cubData, char *pchEncodedData, uint32 cchEncodedData )
 {
-	VPROF_BUDGET( "CCrypto::HexEncode", VPROF_BUDGETGROUP_ENCRYPTION );
 	Assert( pData );
 	Assert( cubData );
 	Assert( pchEncodedData );
@@ -53,7 +51,6 @@ bool CCrypto::HexEncode( const void *pData, const uint32 cubData, char *pchEncod
 //-----------------------------------------------------------------------------
 bool CCrypto::HexDecode( const char *pchData, void *pDecodedData, uint32 *pcubDecodedData )
 {
-	VPROF_BUDGET( "CCrypto::HexDecode", VPROF_BUDGETGROUP_ENCRYPTION );
 	Assert( pchData );
 	Assert( pDecodedData );
 	Assert( pcubDecodedData );
@@ -185,7 +182,6 @@ bool CCrypto::Base64Encode( const void *pubData, uint32 cubData, char *pchEncode
 //-----------------------------------------------------------------------------
 bool CCrypto::Base64Encode( const void *pData, uint32 cubData, char *pchEncodedData, uint32* pcchEncodedData, const char *pszLineBreak )
 {
-	VPROF_BUDGET( "CCrypto::Base64Encode", VPROF_BUDGETGROUP_ENCRYPTION );
 	
 	if ( pchEncodedData == NULL )
 	{
@@ -315,8 +311,6 @@ bool CCrypto::Base64Decode( const char *pchData, void *pubDecodedData, uint32 *p
 //-----------------------------------------------------------------------------
 bool CCrypto::Base64Decode( const char *pchData, uint32 cchDataMax, void *pDecodedData, uint32 *pcubDecodedData, bool bIgnoreInvalidCharacters )
 {
-	VPROF_BUDGET( "CCrypto::Base64Decode", VPROF_BUDGETGROUP_ENCRYPTION );
-	
 	uint8 *pubDecodedData = (uint8 *)pDecodedData;
 	uint32 cubDecodedData = *pcubDecodedData;
 	uint32 cubDecodedDataOrig = cubDecodedData;
